@@ -1,0 +1,690 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>JioHotstar</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css" integrity="sha512-Evv84Mr4kqVGRNSgIGL/F/aIDqQb7xQ2vcrdIwxfjThSH8CSR7PBEakCr51Ck+w+/U6swU2Im1vVX0SVk9ABhg==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <style>
+        *{
+            margin:0;
+            padding:0;
+            box-sizing: border-box;
+            font-family: Arial, Helvetica, sans-serif;
+            scrollbar-width: none;
+        }
+        .container{
+            width:100%;
+            height:100vh;
+            background-color: skyblue;
+        }
+        .navigation{
+            width:8vw;
+            height:100vh;
+            background-color: black;
+            color: grey;
+            font-size: 22px;
+            display:flex;
+            flex-direction: column;
+            justify-content: start;
+            align-items: center;
+            gap: 35px;
+            padding: 30px;
+            position: fixed;
+            top:0;
+            left:0;
+        }
+        nav i:hover {
+            color: white;
+            cursor: pointer;
+        }
+        nav img{
+            cursor: pointer;
+        }
+        .main {
+            width: 92vw;
+            min-height: 100vh;
+            background-color: black;
+            float: right;
+        }
+        .section1{
+            width:90%;
+            background: #232526; 
+            background: -webkit-linear-gradient(to right, #414345, #232526);
+            background: linear-gradient(to right, #414345, #232526);
+            border-radius: 10px;
+            margin:10px;
+            display: flex;
+            gap:10px;
+            height:350px;
+        }
+        .ad{
+            border-radius: 10px;
+        }
+        .right1{
+            color: white;
+            padding-top: 25px;
+        }
+        .rtop{
+            display: flex;
+            align-items: center;
+            gap:10px;
+            margin-bottom: 15px;
+        }
+        .jh{
+            border-radius: 3px;
+        }
+        .btn{
+            background-color: rgb(72, 72, 72);
+            border: none;
+            border-radius: 10px;
+            padding: 15px 40px ;
+            font-size: 21px;
+            color: white;
+            font-weight: 500;
+            margin-top: 90px;
+        }
+        .btn:hover{
+            background-color: rgb(132, 131, 131);
+            cursor:pointer;
+        }
+        .section2{
+            width:100%;
+            min-height:100vh;
+            margin: 13px auto;
+        }
+        .bg{
+            width:100%;
+            position:sticky;
+            top:0;
+        }
+        .sec2-left{
+            width:100%;
+            min-height:200px;
+            display: flex;
+            flex-direction: column;
+            position: relative;
+            bottom: 400px;
+            color: white;
+            padding:15px;
+            background: linear-gradient(to bottom, transparent, #00000079, #000000,  #000000 );
+        }
+        .flash{
+            margin-bottom: 15px;
+        }
+        .l1{
+            font-size: 20px;
+            color: #009FFF;
+            font-weight: bold;
+            margin-bottom: 15px;
+        }
+        .l2{
+            font-size: 20px;
+            color: white;
+            font-weight: bold;
+            margin-bottom: 15px;
+        }
+        .l3{
+            font-size: 19px;
+            color: rgb(212, 208, 208);
+            font-weight: 400;
+            margin-bottom: 15px;
+            width:40%;
+        }
+        .l4{
+            font-size: 20px;
+            color: white;
+            font-weight: bold;
+            margin-bottom: 35px;
+        }
+        .watch {
+            font-size: 20px;
+            text-shadow: 0 0 30px rgb(0, 0, 0);
+            width: 25%;
+            border-radius: 8px;
+            border: none;
+            background: #009FFF;
+            background: -webkit-linear-gradient(to left, #ec2F4B, #009FFF);
+            background: linear-gradient(to left, #ec2F4B, #009FFF);
+            color: white;
+            font-weight: 600;
+            gap:10px;
+        }
+        .sec2-bottom{
+            display: flex;
+            width:100%;
+            gap:200px;
+        }
+        .scroll{
+            padding: 10px;
+            gap: 10px;
+            width:50%;
+            overflow: scroll;
+        }
+        .s{
+            border-radius: 5px;
+            transition: 0.5s all ease;
+        }
+        .s:hover{
+            scale: 1.1;
+            cursor: pointer;
+        }
+        .section3 {
+            width: 100%;
+            background-color: black;
+            padding: 20px;
+            position: relative;
+            bottom: 400px;
+        }
+        .sec3-head{
+            font-size: 28px;
+            color: white;
+            font-weight: 700;
+        }
+        .releases{
+            padding: 18px;
+            display: flex;
+            overflow: scroll;
+            gap: 20px;
+        }
+        .r{
+            border-radius: 5px;
+            transition: 0.5s all ease;
+        }
+        .r:hover{
+            scale: 1.1;
+            cursor: pointer;
+        }
+        .section4 {
+            width: 100%;
+            background-color: black;
+            padding: 20px;
+            position: relative;
+            bottom: 400px;
+        }
+        .sports{
+            padding: 18px;
+            display: flex;
+            overflow: scroll;
+            gap: 25px;
+        }
+        .n{
+            font-size: 18px;
+            color: white;
+            font-weight: 400;
+            display:flex;
+            flex-direction:column;
+            gap:15px;
+        }
+        .section5 {
+            width: 100%;
+            background-color: black;
+            padding: 20px;
+            position: relative;
+            bottom: 400px;
+        }
+        .movies{
+            padding: 24px;
+            display: flex;
+            overflow: scroll;
+            gap: 40px;
+        }
+        .movies::-webkit-scrollbar {
+            display: none;
+        }
+        .box{
+            position:relative;
+        }
+        .box1::after{
+            position:absolute;
+            left:-30px;
+            bottom:-30px;
+            font-size: 100px;
+            font-weight: 700;
+            color: white;
+            content: '1';
+        }
+        .box2::after{
+            position:absolute;
+            left:-30px;
+            bottom:-30px;
+            font-size: 100px;
+            font-weight: 700;
+            color: white;
+            content: '2';
+        }
+        .box3::after{
+            position:absolute;
+            left:-30px;
+            bottom:-30px;
+            font-size: 100px;
+            font-weight: 700;
+            color: white;
+            content: '3';
+        }
+        .box4::after{
+            position:absolute;
+            left:-30px;
+            bottom:-30px;
+            font-size: 100px;
+            font-weight: 700;
+            color: white;
+            content: '4';
+        }
+        .box5::after{
+            position:absolute;
+            left:-30px;
+            bottom:-30px;
+            font-size: 100px;
+            font-weight: 700;
+            color: white;
+            content: '5';
+        }
+        .box6::after{
+            position:absolute;
+            left:-30px;
+            bottom:-30px;
+            font-size: 100px;
+            font-weight: 700;
+            color: white;
+            content: '6';
+        }
+        .box7::after{
+            position:absolute;
+            left:-30px;
+            bottom:-30px;
+            font-size: 100px;
+            font-weight: 700;
+            color: white;
+            content: '7';
+        }
+        .box8::after{
+            position:absolute;
+            left:-30px;
+            bottom:-30px;
+            font-size: 100px;
+            font-weight: 700;
+            color: white;
+            content: '8';
+        }
+        .box9::after{
+            position:absolute;
+            left:-30px;
+            bottom:-30px;
+            font-size: 100px;
+            font-weight: 700;
+            color: white;
+            content: '9';
+        }
+        .box10::after{
+            position:absolute;
+            left:-30px;
+            bottom:-30px;
+            font-size: 100px;
+            font-weight: 700;
+            color: white;
+            content: '10';
+        }
+        .box:hover{
+            scale:1.1;
+            transition: 0.5s all ease;
+        }
+        .movie{
+            border-radius: 5px;
+        }
+        .section6{
+            width: 100%;
+            background-color: black;
+            padding: 20px;
+            position: relative;
+            bottom: 400px;
+        }
+        .kids{
+            padding: 18px;
+            display: flex;
+            overflow: scroll;
+            gap: 25px;
+        }
+        .section7{
+            width: 100%;
+            background-color: black;
+            padding: 20px;
+            position: relative;
+            bottom: 400px;
+        }
+        .serials{
+            padding: 18px;
+            display: flex;
+            overflow: scroll;
+            gap: 25px;
+        }
+        .section8{
+            width: 100%;
+            background-color: black;
+            padding: 20px;
+            position: relative;
+            bottom: 400px;
+        }
+        .languages{
+            padding: 18px;
+            display: flex;
+            overflow: scroll;
+            gap: 25px;
+        }
+        .section9{
+            width: 100%;
+            background-color: black;
+            padding: 20px;
+            position: relative;
+            bottom: 400px;
+        }
+        .originals{
+            padding: 18px;
+            display: flex;
+            overflow: scroll;
+            gap: 25px;
+        }
+        .footer{
+            width: 100%;
+            background-color: black;
+            padding: 40px 20px;
+            position: relative;
+            bottom: 400px;
+        }
+        .f-top{
+            display:flex;
+            justify-content: space-between;
+            color: white;
+            font-size: 20px;
+            margin-bottom: 20px;
+        }
+        .f{
+            display: flex;
+            flex-direction: column;
+            gap:20px;
+        }
+        .f p{
+            color: #bebebe;
+            font-size: 17px;
+            font-weight: 400;
+        }
+        .f-bottom{
+            display: flex;
+            justify-content: space-between;
+            color: #bebebe;
+        }
+        .f2{
+            display: flex;
+            gap:15px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <nav class="navigation">
+            <div><img src="logo.png" height="60px" alt=""></div>
+            <div><i class="fa-solid fa-house"></i></div>
+            <div><i class="fa-solid fa-magnifying-glass"></i></div>
+            <div><i class="fa-solid fa-tv"></i></div>
+            <div><i class="fa-solid fa-bowl-food"></i></div>
+            <div><i class="fa-solid fa-person-running"></i></div>
+            <div><i class="fa-solid fa-video"></i></div> 
+            <div><i class="fa-solid fa-table"></i></div>
+            <div><i class="fa-regular fa-circle-user"></i></div>
+        </nav>
+         <div class="main">
+            <!-- section1 -->
+            <div class="section1"> 
+                <div class="left1">
+                    <img src="ad.png" height="350px" class="ad" alt="">
+                </div> 
+                <div class="right1">
+                    <div class="rtop">
+                       <img src="jiohotstar.png" height="50px" class="jh"alt="">
+                       <div class="lines">
+                         <h4>DareDevil</h4>
+                         <p style="color: gray; font-size:16px;">Streaming from March 5</p>
+                       </div>
+                    </div> 
+                    <div class="rbottom">
+                        <p style="font-size:20px;">Daredevil's secret life is on the in this gripping superhero drama!</p>
+                    </div> 
+                    <button class="btn" type="button">Trailer</button> 
+                </div>
+            </div>
+            <!-- section2 -->
+            <div class="section2">
+                <img src="flash.avif" alt="" class="bg">
+                <div class="sec2-left">
+                    <img src="flashlogo.avif" alt="" width="200px" class="flash">
+                    <p class="l1">New Release</p>
+                    <p class="l2">2025 . U/A 13+ . 1hr41m . Hindi</p>
+                    <p class="l3">Explore love,happiness,compassion and self-discovery through four stories in the company of man's bestfriend.</p>
+                    <p class="l4">Drama | Romantic Comedy | Family | Feel-Good</p>
+                    <div class="sec2-bottom">
+                        <button class="watch"><i class="fa-solid fa-play"></i>  Watch Now</button>
+                        <div class="scroll">
+                            <img src="s1.avif" alt="" height="50px" class="s">
+                            <img src="s2.avif" alt="" height="50px" class="s">
+                            <img src="s3.avif" alt="" height="50px" class="s">
+                            <img src="s4.avif" alt="" height="50px" class="s">
+                            <img src="s5.avif" alt="" height="50px" class="s">
+                            <img src="s6.avif" alt="" height="50px" class="s">
+                            <img src="s7.avif" alt="" height="50px" class="s">
+                            <img src="s8.avif" alt="" height="50px" class="s">
+                        </div>
+                    </div>
+                </div>
+                <!-- section3 -->
+                <div class="section3">
+                    <h4 class="sec3-head">Latest Releases</h4>
+                    <div class="releases">
+                        <img src="r1.jpg" alt="" class="r" height="250px">
+                        <img src="r2.jpg" alt="" class="r" height="250px">
+                        <img src="r3.jpg" alt="" class="r" height="250px">
+                        <img src="r4.jpg" alt="" class="r" height="250px">
+                        <img src="r5.jpg" alt="" class="r" height="250px">
+                        <img src="r6.jpg" alt="" class="r" height="250px">
+                        <img src="r7.jpg" alt="" class="r" height="250px">
+                        <img src="r8.jpg" alt="" class="r" height="250px">
+                        <img src="r9.jpg" alt="" class="r" height="250px">
+                        <img src="r10.jpg" alt="" class="r" height="250px">
+                    </div>
+                </div>
+                <!-- section4 -->
+                <div class="section4">
+                    <h4 class="sec3-head">Non-stop Sports</h4>
+                    <div class="sports">
+                        <div class="n">
+                            <img src="n1.avif" alt="" class="r" width="350px">
+                            <p>New Zealand vs India: Highlights</p>
+                        </div>
+                        <div class="n">
+                            <img src="n2.avif" alt="" class="r" width="350px">
+                            <p>Power Play 2024</p>
+                        </div>
+                        <div class="n">
+                            <img src="n3.avif" alt="" class="r" width="350px">
+                            <p>Chakravarthy's 5/42 vs New Zealand</p>
+                        </div>
+                        <div class="n">
+                            <img src="n4.avif" alt="" class="r" width="350px">
+                            <p>Flying Philips stuns Kohli!</p>
+                        </div>
+                        <div class="n">
+                            <img src="n5.avif" alt="" class="r" width="350px">
+                            <p>Five-star Chakravarthy sinks NZ</p>
+                        </div>
+                        <div class="n">
+                            <img src="n6.avif" alt="" class="r" width="350px">
+                            <p>IND Top Group A,Face AUS in semis</p>
+                        </div>
+                        <div class="n">
+                            <img src="n7.avif" alt="" class="r" width="350px">
+                            <p>NZ's great catches vs India</p>
+                        </div>
+                        <div class="n">
+                            <img src="n8.avif" alt="" class="r" width="350px">
+                            <p>Pandya's 45 vs NZ</p>
+                        </div>
+                    </div>
+                </div>
+                <!-- section5 -->
+                <div class="section5">
+                    <h4 class="sec3-head">Top 10 in India Today-Hindi</h4>
+                    <div class="movies">
+                        <div class="box box1">
+                            <img src="t1.jpg" alt="" class="movie" height="250px">
+                        </div>
+                        <div class="box box2">
+                            <img src="t2.jpg" alt="" class="movie" height="250px">
+                        </div>
+                        <div class="box box3">
+                            <img src="t3.jpg" alt="" class="movie" height="250px">
+                        </div>
+                        <div class="box box4">
+                            <img src="t4.jpg" alt="" class="movie" height="250px">
+                        </div>
+                        <div class="box box5">
+                            <img src="t5.jpg" alt="" class="movie" height="250px">
+                        </div>
+                        <div class="box box6">
+                            <img src="t6.jpg" alt="" class="movie" height="250px">
+                        </div>
+                        <div class="box box7">
+                            <img src="t7.jpg" alt="" class="movie" height="250px">
+                        </div>
+                        <div class="box box8">
+                            <img src="t8.jpg" alt="" class="movie" height="250px">
+                        </div>
+                        <div class="box box9">
+                            <img src="t9.jpg" alt="" class="movie" height="250px">
+                        </div>
+                        <div class="box box10">
+                            <img src="t10.jpg" alt="" class="movie" height="250px">
+                        </div>
+                    </div>
+                </div>
+                <!-- section6 -->
+                <div class="section6">
+                    <h4 class="sec3-head">Kids Shows</h4>
+                    <div class="kids">
+                        <img src="k1.jpg" alt="" class="r" height="250px">
+                        <img src="k2.jpg" alt="" class="r" height="250px">
+                        <img src="k3.jpg" alt="" class="r" height="250px">
+                        <img src="k4.jpg" alt="" class="r" height="250px">
+                        <img src="k5.jpg" alt="" class="r" height="250px">
+                        <img src="k6.jpg" alt="" class="r" height="250px">
+                        <img src="k7.jpg" alt="" class="r" height="250px">
+                        <img src="k8.jpg" alt="" class="r" height="250px">
+                        <img src="k9.jpg" alt="" class="r" height="250px">
+                        <img src="k10.jpg" alt="" class="r" height="250px">
+                    </div>
+                </div>
+                <!-- section7 -->
+                <div class="section7">
+                    <h4 class="sec3-head">Latest Episodes Before Tv</h4>
+                    <div class="serials">
+                        <div class="n">
+                            <img src="e1.avif" alt="" class="r" width="350px">
+                            <p>Vasundhara's Refusal stuns everyone</p>
+                        </div>
+                        <div class="n">
+                            <img src="e2.webp" alt="" class="r" width="350px">
+                            <p>Armaan breaks ties with the poddars</p>
+                        </div>
+                        <div class="n">
+                            <img src="e3.avif" alt="" class="r" width="350px">
+                            <p>Circus on a plate</p>
+                        </div>
+                        <div class="n">
+                            <img src="e4.avif"" class="r" width="350px">
+                            <p>Hunters Phatack,Roadiums Jhatack!</p>
+                        </div>
+                        <div class="n">
+                            <img src="e5.avif" alt="" class="r" width="350px">
+                            <p>Laxmi insults Mukhta</p>
+                        </div>
+                        <div class="n">
+                            <img src="e6.webp" alt="" class="r" width="350px">
+                            <p>Janak's blood for Aarshi</p>
+                        </div>
+                        <div class="n">
+                            <img src="e7.avif" alt="" class="r" width="350px">
+                            <p>A photo unveils the truth</p>
+                        </div>
+                        <div class="n">
+                            <img src="e8.webp" alt="" class="r" width="350px">
+                            <p>Sayali confronts Riya</p>
+                        </div>
+                    </div>
+                </div>
+                <!-- section8 -->
+                <div class="section8">
+                    <h4 class="sec3-head">Popular languages</h4>
+                    <div class="languages">
+                        <img src="l1.webp" alt="" class="r" width="355px">
+                        <img src="l2.webp" alt="" class="r" width="355px">
+                        <img src="l3.webp" alt="" class="r" width="355px">
+                        <img src="l4.webp" alt="" class="r" width="355px">
+                        <img src="l5.webp" alt="" class="r" width="355px">
+                        <img src="l6.webp" alt="" class="r" width="355px">
+                        <img src="l7.webp" alt="" class="r" width="355px">
+                        <img src="l8.webp" alt="" class="r" width="355px">
+                    </div>
+                </div>
+                <!-- section9 -->
+                <div class="section9">
+                    <h4 class="sec3-head">Best Of Originals</h4>
+                    <div class="originals">
+                        <img src="o1.jpg" alt="" class="r" height="250px">
+                        <img src="o2.jpg" alt="" class="r" height="250px">
+                        <img src="o3.jpg" alt="" class="r" height="250px">
+                        <img src="o4.jpg" alt="" class="r" height="250px">
+                        <img src="o5.jpg" alt="" class="r" height="250px">
+                        <img src="o6.jpg" alt="" class="r" height="250px">
+                        <img src="o7.jpg" alt="" class="r" height="250px">
+                        <img src="o8.jpg" alt="" class="r" height="250px">
+                        <img src="o9.jpg" alt="" class="r" height="250px">
+                        <img src="o10.jpg" alt="" class="r" height="250px">
+                    </div>
+                </div>
+                <!-- section10 -->
+                <div class="footer">
+                    <div class="f-top">
+                        <div class="f">
+                            <h4>Company</h4>
+                            <p>About Us</p>
+                            <p>Careers</p>
+                        </div>
+                        <div class="f">
+                            <h4>View website in</h4>
+                            <p>English</p>
+                        </div>
+                        <div class="f">
+                            <h4>Need Help?</h4>
+                            <p>Visit Help Center</p>
+                            <p>Share Feedback</p>
+                        </div>
+                        <div class="f">
+                            <h4>Connect with us</h4>
+                            <p><i class="fa-brands fa-facebook"></i>      <i class="fa-brands fa-x-twitter"></i></p>
+                        </div>
+                    </div>
+                    <div class="f-bottom">
+                        <div class="f1">
+                            <p>&copy; 2025 STAR. All Rights Reserved.</p>
+                            <p>Terms Of Use  Privacy Policy  FAQ</p>
+                        </div>
+                        <div class="f2">
+                            <img src="google.webp" alt="" width="150px">
+                            <img src="apple.webp" alt="" width="150px">
+                        </div>
+                    </div>
+                </div>
+            </div>
+         </div>
+
+    </div>
+</body>
+</html>
